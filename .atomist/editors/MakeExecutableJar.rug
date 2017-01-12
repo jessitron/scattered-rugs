@@ -1,0 +1,53 @@
+@description "teaches a maven project how to make an executablejar"
+@tag "maven"
+editor MakeExecutableJar
+
+@displayName "Main Class"
+@description "Fully qualified Java classname"
+@minLength 1
+@maxLength 100
+param main_class: ^.*$
+
+let pluginContents = """<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.3</version>
+        <configuration>
+          <outputFile>target/executable.jar</outputFile>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>__I_AM_THE_MAIN__</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>"""
+
+let runScript = """#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+java -jar $DIR/../target/executable.jar "$@"
+"""
+
+
+with Pom p
+  do addOrReplaceBuildPlugin "org.apache.maven.plugins" "maven-shade-plugin" pluginContents
+
+with File f when path = "pom.xml" begin
+  do replace "__I_AM_THE_MAIN__" main_class
+  do eval { print("run `mvn package` to create an executable jar")}
+end
+
+with Project p begin
+  do eval { print("Find a run script in your project's bin directory") }
+  do addFile "bin/run" runScript
+end
