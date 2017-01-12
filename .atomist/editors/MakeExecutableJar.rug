@@ -33,7 +33,15 @@ let pluginContents = """<plugin>
       </plugin>"""
 
 let runScript = """#!/bin/bash
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 java -jar $DIR/../target/executable.jar "$@"
 """
@@ -48,6 +56,6 @@ with File f when path = "pom.xml" begin
 end
 
 with Project p begin
-  do eval { print("Find a run script in your project's bin directory") }
+  do eval { print("Find a run script in your project's bin directory. You'll have to make it executable yourself, sorry") }
   do addFile "bin/run" runScript
 end
