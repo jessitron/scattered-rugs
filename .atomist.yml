@@ -49,3 +49,19 @@ generator:
     - "version": "0.1.0"
     - "description": "one-time-use rugs"
 
+---
+kind: "operation"
+client: "rug-cli 0.20.0"
+editor:
+  name: "atomist-rugs.common-editors.AddReadme"
+  group: "atomist-rugs"
+  artifact: "common-editors"
+  version: "0.6.0"
+  origin:
+    repo: "atomist-rugs/common-editors.git"
+    branch: "4689120caeeec5f3ed5abc7c0fa3ffe3e8ec879e"
+    sha: "4689120"
+  parameters:
+    - "project_name": "scattered-rugs"
+    - "description": "an assortment of rugs I at-least-once found useful locally"
+
