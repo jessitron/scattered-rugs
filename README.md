@@ -43,6 +43,13 @@ Finally, parameter=value gives my editor the info it needs.
 
 ### Available editors
 
+#### AddScalaPom
+bring a toy Scala project into the big-time by adding a pom.xml. Then you can build it using mvn, and do even more amazing things by running other editors, like MakeExecutableJar.
+
+This editor creates the simplest Pom that will compile Scala.
+
+Give it a group_id (like com.jessitron) and an artifact_id (like org-dep-graph).
+
 #### MakeExecutableJar
 turn a JVM + maven project into one I can run from a shell command line. (For Windows you'd need a different script, sorry.)
 
