@@ -3,5 +3,5 @@ artifact: scattered-rugs
 version: "0.1.0"
 requires: "[0.10.0,1.0.0)"
 dependencies:
-  - atomist-rugs:common-editors:latest
+  - atomist-rugs:common-editors:0.8.0
 extensions:

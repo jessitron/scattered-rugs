@@ -3,6 +3,8 @@
 @tag "scala"
 editor AddScalaPom
 
+uses atomist-rugs.common-editors.AddScalaMavenGitIgnore
+
 @displayName "Group Id"
 @description "maven group ID"
 @minLength 1
@@ -22,3 +24,5 @@ with Pom p begin
   do setGroupId group_id
   do setArtifactId artifact_id
 end
+
+AddScalaMavenGitIgnore

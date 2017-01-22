@@ -1,6 +1,5 @@
 scenario AddScalaPom should add pom.xml
 
-
 given
   Empty
 
@@ -11,3 +10,15 @@ then
   fileExists "pom.xml"
 	and fileContains "pom.xml" "artifactId>automate-all</artif"
 	and fileContains "pom.xml" "groupId>com.things</group"
+
+scenario AddScalaPom should add target to .gitignore
+
+  given
+    Empty
+
+  when
+    AddScalaPom group_id="com.things", artifact_id="automate-all"
+
+  then
+    fileExists ".gitignore"
+  	and fileContains ".gitignore" "target/"
