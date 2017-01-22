@@ -1,0 +1,24 @@
+@description "teaches a Scala project how to build with maven"
+@tag "maven"
+@tag "scala"
+editor AddScalaPom
+
+@displayName "Group Id"
+@description "maven group ID"
+@minLength 1
+param group_id: @group_id
+
+@displayName "Artifact Id"
+@description "maven artifact ID"
+@minLength 1
+param artifact_id: @artifact_id
+
+let source_pom="pom.xml"
+
+with Project p
+  do copyEditorBackingFileOrFail "pom.xml" "pom.xml"
+
+with Pom p begin
+  do setGroupId group_id
+  do setArtifactId artifact_id
+end
