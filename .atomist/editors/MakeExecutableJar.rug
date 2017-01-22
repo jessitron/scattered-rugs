@@ -6,7 +6,7 @@ editor MakeExecutableJar
 @description "Fully qualified Java classname"
 @minLength 1
 @maxLength 100
-param main_class: ^.*$
+param main_class: @java_package
 
 let pluginContents = """<plugin>
         <groupId>org.apache.maven.plugins</groupId>
