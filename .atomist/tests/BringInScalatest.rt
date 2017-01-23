@@ -1,0 +1,10 @@
+scenario BringInScalatest gets the artifact name right
+
+given
+ArchiveRoot
+
+when
+BringInScalatest
+
+then
+   fileContains "pom.xml" "artifactId>scalatest_2.11</artif"
