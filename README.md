@@ -50,8 +50,16 @@ This editor creates the simplest Pom that will compile Scala.
 
 Give it a group_id (like com.jessitron) and an artifact_id (like org-dep-graph).
 
+[Code](.atomist/editors/AddScalaPom.rug)
+
+from a clone of this repo:
+`rug edit -lRC ~/code/target-project-dir AddScalaPom group_id=com.you artifact_id=toy-program`
+
 #### BringInScalatest
 Add the POM dependencies for scalatest, along with the build plugin to run them and the build plugin to skip the Java test phase.
+
+from a clone of this repo:
+`rug edit -lRC ~/code/target-project-dir BringInScalatest`
 
 #### MakeExecutableJar
 turn a JVM + maven project into one I can run from a shell command line. (For Windows you'd need a different script, sorry.)
