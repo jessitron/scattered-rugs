@@ -1,0 +1,20 @@
+scenario IntellijModule should do something amazing for developers
+
+let my_value = "I like it here"
+
+let sample_output_file = "happy.txt"
+
+given
+  /* Selects the current project and its source files
+     as an initial point for then applying your editor
+  */
+  ArchiveRoot
+
+when
+  /* Run your editor */
+  IntellijModule
+
+then
+  /* Assert Something important that your editor did */
+  fileExists sample_output_file
+    and fileContains sample_output_file my_value

@@ -78,3 +78,18 @@ editor:
     branch: "4689120caeeec5f3ed5abc7c0fa3ffe3e8ec879e"
     sha: "4689120"
 
+---
+kind: "operation"
+client: "rug-cli 0.22.0"
+editor:
+  name: "atomist-rugs.rug-editors.AddRugEditor"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.6.0"
+  origin:
+    repo: "git@github.com:atomist-rugs/rug-editors"
+    branch: "jessitron/fewer-templates"
+    sha: "e8716c0"
+  parameters:
+    - "editor_name": "IntellijModule"
+
