@@ -1,9 +1,0 @@
-@description "what does this do?"
-@tag "documentation"
-editor IntellijModule
-
-let happyFileContents = "I like it here"
-
-/* Example showing adding one file */
-with Project p
-  do addFile "happy.txt" happyFileContents
