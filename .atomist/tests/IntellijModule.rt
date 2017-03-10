@@ -1,5 +1,7 @@
 scenario IntellijModule should do something amazing for developers
 
+debug=true
+
 let outputFile = "artifact-source.iml"
 
 let outputContents =
@@ -40,3 +42,5 @@ when
 
 then
   fileHasContent outputFile outputContents
+  and dumpAll
+  and dump "happy.txt"
