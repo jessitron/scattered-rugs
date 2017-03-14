@@ -93,3 +93,49 @@ editor:
   parameters:
     - "editor_name": "IntellijModule"
 
+---
+kind: "operation"
+client: "rug-cli 0.25.0"
+editor:
+  name: "AddTypeScriptEditor"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.16.0"
+  origin:
+    repo: "git@github.com:atomist-rugs/rug-editors"
+    branch: "master"
+    sha: "7ab91fc*"
+  parameters:
+    - "editorName": "TestMerge"
+    - "description": "rug#424"
+
+---
+kind: "operation"
+client: "rug-cli 0.25.0"
+editor:
+  name: "TestMerge"
+  group: "jessitron"
+  artifact: "scattered-rugs"
+  version: "0.2.0"
+  origin:
+    repo: "git@github.com:jessitron/scattered-rugs.git"
+    branch: "master"
+    sha: "abfa507*"
+  parameters:
+    - "input_parameter": "no"
+
+---
+kind: "operation"
+client: "rug-cli 0.25.0"
+editor:
+  name: "TestMerge"
+  group: "jessitron"
+  artifact: "scattered-rugs"
+  version: "0.2.0"
+  origin:
+    repo: "git@github.com:jessitron/scattered-rugs.git"
+    branch: "master"
+    sha: "abfa507*"
+  parameters:
+    - "input_parameter": "no"
+

@@ -1,0 +1,10 @@
+scenario TestMerge is added to your project by AddTestMerge
+
+given
+  ArchiveRoot
+
+when
+  TestMerge input_parameter="the input_parameter value"
+
+then
+  fileContains "hello.txt" "Hello, World!"
